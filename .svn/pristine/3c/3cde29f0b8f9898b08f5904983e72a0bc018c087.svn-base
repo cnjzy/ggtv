@@ -1,0 +1,139 @@
+package com.example.ddddd.activity;
+
+import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.view.WindowManager;
+import android.widget.MediaController;
+import android.widget.Toast;
+import android.widget.VideoView;
+
+import com.example.ddddd.R;
+import com.example.ddddd.base.BaseActivity;
+import com.example.ddddd.util.VideoHistoryUtils;
+import com.example.ddddd.vo.ProductInfoVO;
+import com.example.ddddd.widget.dialog.CustomLoadingDialog;
+
+public class VideoPlayerActivity extends BaseActivity implements
+		MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
+	public static final String TAG = "VideoPlayer";
+	private VideoView mVideoView;
+	private Uri mUri;
+	private int mPositionWhenPaused = -1;
+
+	private MediaController mMediaController;
+
+	private ProductInfoVO vo;
+
+	@Override
+	public void initLayout() {
+		setContentView(R.layout.activity_video);
+	}
+
+	@Override
+	public void init() {
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); 
+		// Set the screen to landscape.
+		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		vo = (ProductInfoVO) getIntent().getExtras().getSerializable("vo");
+		if (vo == null || TextUtils.isEmpty(vo.getVideoUrl())) {
+			Toast.makeText(this, "影片地址错误，我们会尽快处理", Toast.LENGTH_LONG).show();
+			finish();
+			return;
+		}
+
+		VideoHistoryUtils.addHistory(vo);
+		if(!isFinishing()){
+			loadingDialog = new CustomLoadingDialog(context, "正在加载，请耐心等待", true);
+			loadingDialog.show();
+		}
+	}
+
+	@Override
+	public void initView() {
+		mVideoView = (VideoView) findViewById(R.id.video_view);
+	}
+
+	@Override
+	public void initListener() {
+		mVideoView.setOnPreparedListener(new OnPreparedListener() {
+			public void onPrepared(MediaPlayer mp) {
+				mp.setVolume(1, 1);
+				dismissLoading();
+			}
+		});
+
+	}
+
+	@Override
+	public void initValue() {
+		// Video file
+		mUri = Uri.parse(vo.getVideoUrl());
+		// Create media controller，组件可以控制视频的播放，暂停，回复，seek等操作，不需要你实现
+		mMediaController = new MediaController(this);
+		mVideoView.setMediaController(mMediaController);
+	}
+
+	@Override
+	public void reLoadView() {
+
+	}
+
+	public void onStart() {
+		showLoading();
+		// Play Video
+		mVideoView.setVideoURI(mUri);
+		mVideoView.start();
+
+		super.onStart();
+	}
+
+	public void onResume() {
+		// Resume video player
+		if (mPositionWhenPaused >= 0) {
+			mVideoView.seekTo(mPositionWhenPaused);
+			mPositionWhenPaused = -1;
+		}
+
+		super.onResume();
+	}
+
+	public void onPause() {
+		// Stop video when the activity is pause.
+		mPositionWhenPaused = mVideoView.getCurrentPosition();
+		new Thread() {
+			public void run() {
+				mVideoView.stopPlayback();
+			};
+		}.start();
+
+		super.onPause();
+	}
+
+	@Override
+	protected void onDestroy() {
+		dismissLoading();
+		super.onDestroy();
+	}
+
+	public boolean onError(MediaPlayer player, int arg1, int arg2) {
+		return false;
+	}
+
+	public void onCompletion(MediaPlayer mp) {
+	}
+
+	private void showLoading() {
+		if (loadingDialog != null && !loadingDialog.isShowing()) {
+			loadingDialog.show();
+		}
+	}
+
+	private void dismissLoading() {
+		if (loadingDialog != null && loadingDialog.isShowing()) {
+			loadingDialog.dismiss();
+		}
+	}
+}

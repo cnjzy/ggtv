@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="5dp" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_white"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/item_image_iv"
+            android:layout_width="fill_parent"
+            android:layout_height="160dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="fitXY"
+            android:src="@color/bg_gray" />
+
+        <ImageView
+            android:id="@+id/item_vip_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/f20_vip" />
+
+        <TextView
+            android:id="@+id/item_name_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_image_iv"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="圣诞节两款手机的理发师"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/sp_16" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_name_tv"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp" >
+
+            <TextView
+                android:id="@+id/item_desc_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:text="圣诞节两款手机的理发师"
+                android:textColor="@color/text_gray_light"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:id="@+id/item_tag_1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/tag_round_pink_bgl"
+                android:paddingBottom="1dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="1dp"
+                android:text="标签1"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/sp_10" />
+
+            <TextView
+                android:id="@+id/item_tag_2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/tag_round_naturals_bg"
+                android:paddingBottom="1dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="1dp"
+                android:text="标签2"
+                android:textColor="@color/naturals"
+                android:textSize="@dimen/sp_10" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

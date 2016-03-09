@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/item_name_tv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:background="@color/text_white"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="成人影院"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/sp_16" />
+
+        <ImageView
+            android:id="@+id/item_icon_iv"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/f20_button_checked" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- 自定义提示框loading -->
+    <style name="custom_dialog">
+        <item name="android:windowBackground">@color/transparent_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+    </style>
+
+    <!-- 自定义提示框动画 右进右出 -->
+    <style name="custom_dialog_right_animstyle">
+        <item name="android:windowEnterAnimation">@anim/activity_right_in</item>
+        <item name="android:windowExitAnimation">@anim/activity_right_out</item>
+    </style>
+
+    <!-- 自定义navigationbar RadioButton -->
+    <style name="navigation_radio_button_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/navigation_text_color</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:paddingLeft">0dp</item>
+    </style>
+</resources>

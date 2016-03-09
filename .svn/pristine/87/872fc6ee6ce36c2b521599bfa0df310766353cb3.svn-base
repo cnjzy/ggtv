@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 白色 -->
+    <color name="wp_c0">#FFFFFFFF</color>
+
+    <!-- 背景灰色 -->
+    <color name="wp_c1">#FFEDEDED</color>
+
+    <!-- 线灰色 -->
+    <color name="wp_c2">#FFE2E2E2</color>
+
+    <!-- 默认字体颜色 -->
+    <color name="wp_c3">#FF4F4F4F</color>
+
+    <!-- 默认字体颜色 -->
+    <color name="wp_c4">#FF000000</color>
+
+    <!-- 透明色 -->
+    <color name="wp_c5">#00000000</color>
+
+    <!-- 橘红色 -->
+    <color name="wp_c6">#FFFF7E2C</color>
+
+    <!-- 半透橘红色 -->
+    <color name="wp_c7">#aaFF7E2C</color>
+
+    <!-- 灰色线 -->
+    <color name="wp_c8">#FF9A9A9A</color>
+    <!-- 基础配色 -->
+    <color name="bt_c1">#EDEDED</color>
+    <color name="bt_c2">#FFFFFF</color>
+    <color name="bt_c3">#ECECEC</color>
+    <color name="bt_c4">#000000</color>
+    <color name="bt_c5">#72AFDB</color>
+    <color name="bt_c6">#B8B8B8</color>
+    <color name="bt_c7">#666666</color>
+
+</resources>

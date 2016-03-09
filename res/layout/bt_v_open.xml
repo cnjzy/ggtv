@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wp_c1"
+    android:orientation="vertical" >
+
+    <!-- 标题头 -->
+
+    <include layout="@layout/bt_v_titlebar" />
+    <!-- 横条 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/wp_c1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp" >
+
+        <TextView
+            style="@style/font_16_9A9A9A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="@string/bt_t14" />
+
+        <TextView
+            style="@style/text_13_666666"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="@string/bt_t15" />
+    </LinearLayout>
+    <!-- 内容 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_weight="1"
+        android:background="@color/bt_c2"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <!-- 姓名 -->
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <TextView
+                style="@style/text_16_000000"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:text="@string/bt_t1" />
+
+            <EditText
+                android:id="@+id/bt_t0"
+                style="@style/text_16_666666"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/bt_t2"
+                android:inputType="textPersonName"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:textColorHint="@color/bt_c6" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0"
+            android:background="@color/bt_c1" >
+        </LinearLayout>
+
+        <!-- 身份证 -->
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <TextView
+                style="@style/text_16_000000"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:text="@string/bt_t5" />
+
+            <EditText
+                android:id="@+id/bt_t2"
+                style="@style/text_16_666666"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/bt_t6"
+                android:inputType="textEmailAddress"
+                android:maxLength="18"
+                android:maxLines="1"
+                android:textColorHint="@color/bt_c6" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0"
+            android:background="@color/bt_c1" >
+        </LinearLayout>
+        <!-- 银行卡 -->
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <TextView
+                style="@style/text_16_000000"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:text="@string/bt_t7" />
+
+            <EditText
+                android:id="@+id/bt_t3"
+                style="@style/text_16_666666"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/bt_t8"
+                android:inputType="number"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:textColorHint="@color/bt_c6" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_weight="0"
+            android:background="@color/bt_c1" >
+        </LinearLayout>
+        <!-- 电话 -->
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <TextView
+                style="@style/text_16_000000"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:text="@string/bt_t3" />
+
+            <EditText
+                android:id="@+id/bt_t1"
+                style="@style/text_16_666666"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/bt_t4"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:textColorHint="@color/bt_c6" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0"
+            android:background="@color/bt_c1" >
+        </LinearLayout>
+        <!-- 验证码 -->
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <EditText
+                android:id="@+id/bt_t4"
+                style="@style/text_16_666666"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/bt_t9"
+                android:inputType="text"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:paddingLeft="5dp"
+                android:paddingRight="40dp"
+                android:textColorHint="@color/bt_c6" />
+
+            <Button
+                android:id="@+id/bt_b1"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="3"
+                android:background="@drawable/wp_bir"
+                android:gravity="center"
+                android:text="@string/bt_t10"
+                android:textColor="@color/bt_c2"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="0"
+            android:background="@color/bt_c1" >
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 按钮 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="-20dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/bt_b0"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/wp_bir"
+            android:text="@string/bt_t11"
+            android:textColor="@color/bt_c2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/bt_tx0"
+            style="@style/text_16_666666"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_t12"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>
