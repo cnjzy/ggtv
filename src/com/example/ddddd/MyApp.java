@@ -26,10 +26,8 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
-import com.wo.main.WP_App;
-import com.wo.main.WP_SDK;
 
-public class MyApp extends WP_App {
+public class MyApp extends Application {
 	private static Context context;
 
 	/**

@@ -27,6 +27,7 @@ import com.example.ddddd.net.utils.RequestParameter;
 import com.example.ddddd.procotol.BaseResponseMessage;
 import com.example.ddddd.util.DeviceUtil;
 import com.example.ddddd.util.LogUtil;
+import com.example.ddddd.util.PayUtils;
 import com.example.ddddd.util.UMengUtils;
 import com.example.ddddd.util.preference.Preferences;
 import com.example.ddddd.util.preference.PreferencesUtils;
@@ -34,7 +35,6 @@ import com.example.ddddd.vo.OrderVO;
 import com.example.ddddd.widget.dialog.CustomLoadingDialog;
 import com.google.gson.reflect.TypeToken;
 import com.umeng.analytics.MobclickAgent;
-import com.wo.main.WP_SDK;
 
 public abstract class BaseFragment extends Fragment implements ThreadCallBack,
 		View.OnClickListener {
@@ -363,8 +363,8 @@ public abstract class BaseFragment extends Fragment implements ThreadCallBack,
 						}
 					}
 					OrderVO vo = (OrderVO) br.getResult();
-					WP_SDK.on_Recharge(String.valueOf(Constants.VIP_TENURE * 100), feeName,
-							feeDesp, vo.getOrder_no(), pay_type - 1);
+					int mStrPayMode = pay_type == 1 ? 2 : 1;
+					PayUtils.pay((Activity) context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
 				}
 				break;
 			}
