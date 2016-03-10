@@ -1,22 +1,16 @@
 package com.example.ddddd.activity;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.ddddd.R;
 import com.example.ddddd.activity.adapter.VideoListAdapter;
 import com.example.ddddd.base.BaseActivity;
 import com.example.ddddd.common.Constants;
 import com.example.ddddd.util.DialogUtil;
-import com.example.ddddd.util.UMengUtils;
 import com.example.ddddd.util.DialogUtil.OnAlertSelectId;
-import com.umeng.analytics.MobclickAgent;
-import com.wo.main.WP_SDK;
 
 public class VideoListActivity extends BaseActivity {
 	private ListView list;
@@ -87,8 +81,6 @@ public class VideoListActivity extends BaseActivity {
 
 	@Override
 	public void init() {
-		// 支付SDK
-		WP_SDK.on_Init(this, null);
 	}
 
 	@Override
