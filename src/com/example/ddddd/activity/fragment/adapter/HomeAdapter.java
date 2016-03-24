@@ -166,9 +166,9 @@ public class HomeAdapter extends ETSBaseAdapter{
 				bean.setTestUrl(vo.getContent().get(j).getTestUrl());
 				bean.setTestSecond(vo.getContent().get(j).getTestSecond());
 				bean.setVideoUrl(vo.getContent().get(j).getVideoUrl());
-				if(!bean.getChannel_name().equals("试播专区")){
+//				if(!bean.getChannel_name().equals("试播专区")){
 					mDataList.add(bean);
-				}
+//				}
 			}
 		}
 		System.out.println("mDataList.size():" + mDataList.size());

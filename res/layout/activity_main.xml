@@ -15,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/f20_logo" />
+            android:background="@drawable/f20_logo"
+            android:visibility="invisible" />
 
         <View
             android:layout_width="0dp"
@@ -28,6 +29,7 @@
             android:layout_height="fill_parent"
             android:layout_marginRight="5dp"
             android:background="@null"
+            android:clickable="false"
             android:src="@drawable/f20_icon_search"
             android:visibility="invisible" />
 
@@ -35,6 +37,7 @@
             android:id="@+id/pay_year_btn"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:clickable="false"
             android:layout_marginRight="10dp"
             android:background="@null"
             android:src="@drawable/icon_vip_year"

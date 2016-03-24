@@ -46,7 +46,9 @@ public class PayUtils {
 				// TODO Auto-generated method stub
 				UMengUtils.addPaySuccess(mContext);
 				MyApp.preferencesUtils.putInt("userType", Constants.MEMBER_TYPE_IS_TENURE);
-				mContext.finish();
+				if(mContext instanceof VideoPlayerActivity){
+					mContext.finish();
+				}
 				
 				Toast.makeText(mContext, "支付成功", Toast.LENGTH_SHORT).show();
 				String mStrOrderId = ((Map<String, String>) params).get("order_id");
@@ -56,7 +58,6 @@ public class PayUtils {
 				String mStrGoodsNum = ((Map<String, String>) params).get("goods_num");
 				String mStrExtendsInfo = ((Map<String, String>) params).get("extends_info");
 				Log.i(PAGETAG, "params=" + params.toString());
-				
 			}
 
 			@Override
@@ -68,7 +69,9 @@ public class PayUtils {
 				String mStrGoodsNote = ((Map<String, String>) params).get("goods_note");
 				String mStrGoodsNum = ((Map<String, String>) params).get("goods_num");
 				String mStrExtendsInfo = ((Map<String, String>) params).get("extends_info");
-
+				if(mContext instanceof VideoPlayerActivity){
+					mContext.finish();
+				}
 				Log.i(PAGETAG, "params=" + params.toString());
 			}
 
@@ -81,7 +84,9 @@ public class PayUtils {
 				String mStrGoodsNote = ((Map<String, String>) params).get("goods_note");
 				String mStrGoodsNum = ((Map<String, String>) params).get("goods_num");
 				String mStrExtendsInfo = ((Map<String, String>) params).get("extends_info");
-
+				if(mContext instanceof VideoPlayerActivity){
+					mContext.finish();
+				}
 				Log.i(PAGETAG, "params=" + params.toString());
 
 			}
@@ -139,18 +144,12 @@ public class PayUtils {
 		if(status == Constants.MEMBER_TYPE_IS_TENURE || Constants.isDebug){
 			return true;
 		}else if(status == Constants.MEMBER_TYPE_IS_NOT){
-//			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
-			Bundle data = new Bundle();
-			data.putInt("clickposition", authority);
-			BaseActivity.showActivity(context, VideoListActivity.class, data);
+			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
 			return false;
 		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_YEAR){
 			return true;
 		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_TENURE){
-//			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
-			Bundle data = new Bundle();
-			data.putInt("clickposition", authority);
-			BaseActivity.showActivity(context, VideoListActivity.class, data);
+			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
 			return false;
 		}
 		return false;

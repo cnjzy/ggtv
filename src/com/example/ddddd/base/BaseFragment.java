@@ -326,6 +326,8 @@ public abstract class BaseFragment extends Fragment implements ThreadCallBack,
 		params.add(new RequestParameter("amount", amount));
 		params.add(new RequestParameter("pay_type", pay_type));
 		params.add(new RequestParameter("member_type", member_type));
+		params.add(new RequestParameter("channel", DeviceUtil.getChannelName(context, "UMENG_CHANNEL")));
+		params.add(new RequestParameter("version", DeviceUtil.getVersionCode(context)));
 		startHttpRequest(Constants.HTTP_POST, Constants.URL_GET_ORDER, params,
 				true, "", REQUEST_PAY_KEY);
 	}
@@ -372,39 +374,4 @@ public abstract class BaseFragment extends Fragment implements ThreadCallBack,
 			LogUtil.e(e);
 		}
 	}
-
-	/***
-	 * @param requestcode
-	 *            请求编号
-	 * @param responsecode
-	 *            响应编号
-	 * @param intent
-	 *            响应内容
-	 */
-	public void onActivityResult(int requestcode, int responsecode,
-			Intent intent) {
-		super.onActivityResult(requestcode, responsecode, intent);
-		try {
-			if (intent != null) {
-				int code = intent.getIntExtra("code", 1);
-				String value = intent.getStringExtra("info");
-				if (responsecode == 0) {// 充值
-					if (code == 0) {// 充值成功
-						UMengUtils.addPaySuccess(context);
-						System.err.println("=======code=" + code + ",info="
-								+ value);
-						MyApp.preferencesUtils.putInt(Preferences.USER_STATUS,
-								MyApp.preferencesUtils.getInt("member_type",
-										Constants.MEMBER_TYPE_IS_YEAR));
-						Toast.makeText(context, "充值成功!", Toast.LENGTH_LONG)
-								.show();
-					} else {// 充值失败
-
-					}
-				}
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-}
+}	

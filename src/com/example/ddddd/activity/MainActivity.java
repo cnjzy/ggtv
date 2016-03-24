@@ -79,8 +79,8 @@ public class MainActivity extends BaseActivity {
 
 	@Override
 	public void initListener() {
-		search_btn.setOnClickListener(this);
-		pay_year_btn.setOnClickListener(this);
+//		search_btn.setOnClickListener(this);
+//		pay_year_btn.setOnClickListener(this);
 		for (int i = 0; i < tab_foot_bar.getChildCount(); i++) {
 			((RadioButton) tab_foot_bar.getChildAt(i)).setOnClickListener(this);
 		}

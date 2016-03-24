@@ -10,7 +10,7 @@ public class Constants {
      * 测试：http://newapi1.etaoshi.com
      * 线上：http://newapi.etaoshi.com
      */
-    public static final String BASE_URL = "http://api.76iw.com";
+    public static final String BASE_URL = "http://apiv.76iw.com";
     public static final String PLATFORM = "Android";
     public static final String CHANNEL = "ets";
 
@@ -19,7 +19,7 @@ public class Constants {
      */
     public static final int VIP_YEAR = 58;
 //    public static final int VIP_TENURE = 1;
-    public static final int VIP_TENURE = 38;
+    public static final int VIP_TENURE = 48;
     public static final int VIP_YEAR_TO_TENURE = 40;
     
     /**

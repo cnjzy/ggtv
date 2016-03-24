@@ -130,9 +130,6 @@ public class HomeFragment extends BaseFragment {
 					headerView = inflater.inflate(R.layout.item_listview_viewpager, null);
 					viewPager = (ChildViewPager) headerView.findViewById(R.id.viewPager);
 					pw = (PointWidget) headerView.findViewById(R.id.litu_welcome_ponit);
-//					RelativeLayout.LayoutParams pwParams = (RelativeLayout.LayoutParams) pw.getLayoutParams();
-//					pwParams.bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.time_title_padding_top_bottom);
-//					pw.setLayoutParams(pwParams);
 					bannerAdapter = new BannerAdapter(getContext(), vo.getBanner(), viewPager, pw);
 					viewPager.setAdapter(bannerAdapter);
 					viewPager.setLayoutParams(viewPagerLayoutParams);

@@ -103,20 +103,20 @@
             android:orientation="vertical" >
 
             <RadioButton
-                android:id="@+id/pay_radio_alipay_rb"
+                android:id="@+id/pay_radio_wx_rb"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:button="@null"
-                android:drawableLeft="@drawable/pay_3rd_zfb"
+                android:checked="true"
+                android:drawableLeft="@drawable/pay_3rd_wx"
+                android:drawablePadding="20dp"
                 android:drawableRight="@drawable/btn_radio_yes_or_no_selector"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
-                android:text="支付宝"
-                android:drawablePadding="20dp"
+                android:text="微信支付"
                 android:textColor="@color/text_black"
-                android:checked="true"
                 android:textSize="@dimen/sp_14" />
 
             <ImageView
@@ -125,18 +125,18 @@
                 android:background="@color/text_gray" />
 
             <RadioButton
-                android:id="@+id/pay_radio_wx_rb"
+                android:id="@+id/pay_radio_alipay_rb"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:button="@null"
+                android:drawableLeft="@drawable/pay_3rd_zfb"
                 android:drawablePadding="20dp"
-                android:drawableLeft="@drawable/pay_3rd_wx"
                 android:drawableRight="@drawable/btn_radio_yes_or_no_selector"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
-                android:text="微信支付"
+                android:text="支付宝"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/sp_14" />
 
