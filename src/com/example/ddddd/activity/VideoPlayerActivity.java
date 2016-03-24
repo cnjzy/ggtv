@@ -1,5 +1,6 @@
 package com.example.ddddd.activity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
@@ -70,7 +71,7 @@ public class VideoPlayerActivity extends BaseActivity implements
 			loadingDialog.show();
 		}
 	}
-
+	
 	@Override
 	public void initView() {
 		mVideoView = (VideoView) findViewById(R.id.video_view);
@@ -168,6 +169,16 @@ public class VideoPlayerActivity extends BaseActivity implements
 		}
 
 		super.onPause();
+	}
+	
+
+	@Override
+	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(arg0, arg1, arg2);
+		if(MyApp.preferencesUtils.getInt("userType", 0) == Constants.MEMBER_TYPE_IS_TENURE){
+			finish();
+		}
 	}
 
 	@Override

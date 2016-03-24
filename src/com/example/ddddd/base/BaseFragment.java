@@ -6,7 +6,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -28,7 +27,6 @@ import com.example.ddddd.procotol.BaseResponseMessage;
 import com.example.ddddd.util.DeviceUtil;
 import com.example.ddddd.util.LogUtil;
 import com.example.ddddd.util.PayUtils;
-import com.example.ddddd.util.UMengUtils;
 import com.example.ddddd.util.preference.Preferences;
 import com.example.ddddd.util.preference.PreferencesUtils;
 import com.example.ddddd.vo.OrderVO;
@@ -366,7 +364,11 @@ public abstract class BaseFragment extends Fragment implements ThreadCallBack,
 					}
 					OrderVO vo = (OrderVO) br.getResult();
 					int mStrPayMode = pay_type == 1 ? 2 : 1;
-					PayUtils.pay((Activity) context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					if(mStrPayMode == 1){
+						PayUtils.payByH5((BaseActivity) context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					}else{
+						PayUtils.pay((Activity) context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					}
 				}
 				break;
 			}

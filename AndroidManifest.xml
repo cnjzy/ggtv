@@ -131,6 +131,9 @@
         <activity
             android:name="com.example.ddddd.activity.VideoListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.ddddd.activity.WebViewActivity"
+            android:screenOrientation="portrait" />
 
         <receiver android:name="com.example.ddddd.receiver.DownloadReceiver" >
             <intent-filter>

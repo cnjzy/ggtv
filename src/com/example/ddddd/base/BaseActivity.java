@@ -564,7 +564,11 @@ public abstract class BaseActivity extends FragmentActivity implements
 					}
 					OrderVO vo = (OrderVO) br.getResult();
 					int mStrPayMode = pay_type == 1 ? 2 : 1;
-					PayUtils.pay(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					if(mStrPayMode == 1){
+						PayUtils.payByH5(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					}else{
+						PayUtils.pay(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					}
 				}
 				break;
 			}
