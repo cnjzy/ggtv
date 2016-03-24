@@ -6,18 +6,17 @@ public class Constants {
     // 版本信息
     public static final String VERSION_NAME = "MMv";
     /**
-     * 民瑞PC：http://10.8.9.140:8080
-     * 测试：http://newapi1.etaoshi.com
-     * 线上：http://newapi.etaoshi.com
+     * 纯净版 http://apiv.76iw.com
+     * 正式版 http://api.76iw.com
      */
-    public static final String BASE_URL = "http://apiv.76iw.com";
+    public static final String BASE_URL = "http://api.76iw.com";
     public static final String PLATFORM = "Android";
     public static final String CHANNEL = "ets";
 
     /**
      * 支付金额
      */
-    public static final int VIP_YEAR = 58;
+    public static final int VIP_YEAR = 58; 
 //    public static final int VIP_TENURE = 1;
     public static final int VIP_TENURE = 48;
     public static final int VIP_YEAR_TO_TENURE = 40;
