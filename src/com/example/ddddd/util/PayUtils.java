@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.ddddd.MyApp;
 import com.example.ddddd.activity.VideoPlayerActivity;
+import com.example.ddddd.activity.WebViewActivity;
 import com.example.ddddd.base.BaseActivity;
 import com.example.ddddd.common.Constants;
 import com.example.ddddd.util.DialogUtil.OnAlertSelectId;
