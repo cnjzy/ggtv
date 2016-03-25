@@ -15,35 +15,6 @@ import com.example.ddddd.vo.ProductInfoVO;
 
 public class PayUtils {
 
-	/**
-	 * 判断是否需要支付
-	 * @param context
-	 * @param authority 视频对应权限 0普通 1包年 2终身
-	 * @param onClickListener
-	 * @return
-	 */
-	public static boolean isPay(final BaseActivity context, int authority, final OnAlertSelectId onClickListener){
-		int status = MyApp.preferencesUtils.getInt(Preferences.USER_STATUS, 0);
-		if(status == Constants.MEMBER_TYPE_IS_TENURE || Constants.isDebug){
-			return true;
-		}else if(status == Constants.MEMBER_TYPE_IS_NOT){
-//			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
-			Bundle data = new Bundle();
-			data.putInt("clickposition", authority);
-			BaseActivity.showActivity(context, VideoListActivity.class, data);
-			return false;
-		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_YEAR){
-			return true;
-		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_TENURE){
-//			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
-			Bundle data = new Bundle();
-			data.putInt("clickposition", authority);
-			BaseActivity.showActivity(context, VideoListActivity.class, data);
-			return false;
-		}
-		return false;
-	}
-	
 //	/**
 //	 * 判断是否需要支付
 //	 * @param context
@@ -56,24 +27,53 @@ public class PayUtils {
 //		if(status == Constants.MEMBER_TYPE_IS_TENURE || Constants.isDebug){
 //			return true;
 //		}else if(status == Constants.MEMBER_TYPE_IS_NOT){
-//			DialogUtil.showPay2Dialog(context, new OnAlertSelectId() {
-//				public void onClick(int whichButton, Object o) {
-//					DialogUtil.showPay3Dialog(context, onClickListener, Integer.parseInt(o.toString()));
-//				}
-//			});
+////			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
+//			Bundle data = new Bundle();
+//			data.putInt("clickposition", authority);
+//			BaseActivity.showActivity(context, VideoListActivity.class, data);
 //			return false;
 //		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_YEAR){
 //			return true;
 //		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_TENURE){
-//			DialogUtil.showPay1Dialog(context, new OnAlertSelectId() {
-//				public void onClick(int whichButton, Object o) {
-//					DialogUtil.showPay3Dialog(context, onClickListener, Integer.parseInt(o.toString()));
-//				}
-//			});
+////			DialogUtil.showPay3Dialog(context, onClickListener, Constants.VIP_TENURE);
+//			Bundle data = new Bundle();
+//			data.putInt("clickposition", authority);
+//			BaseActivity.showActivity(context, VideoListActivity.class, data);
 //			return false;
 //		}
 //		return false;
 //	}
+	
+	/**
+	 * 判断是否需要支付
+	 * @param context
+	 * @param authority 视频对应权限 0普通 1包年 2终身
+	 * @param onClickListener
+	 * @return
+	 */
+	public static boolean isPay(final BaseActivity context, int authority, final OnAlertSelectId onClickListener){
+		int status = MyApp.preferencesUtils.getInt(Preferences.USER_STATUS, 0);
+		if(status == Constants.MEMBER_TYPE_IS_TENURE || Constants.isDebug){
+			return true;
+		}else if(status == Constants.MEMBER_TYPE_IS_NOT){
+			DialogUtil.showPay2Dialog(context, new OnAlertSelectId() {
+				public void onClick(int whichButton, Object o) {
+					DialogUtil.showPay3Dialog(context, onClickListener, Integer.parseInt(o.toString()));
+				}
+			});
+			return false;
+		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_YEAR){
+			return true;
+		}else if(status == Constants.MEMBER_TYPE_IS_YEAR && authority == Constants.MEMBER_TYPE_IS_TENURE){
+			DialogUtil.showPay1Dialog(context, new OnAlertSelectId() {
+				public void onClick(int whichButton, Object o) {
+					DialogUtil.showPay3Dialog(context, onClickListener, Integer.parseInt(o.toString()));
+				}
+			});
+			return false;
+		}
+		return false;
+	}
 	
 	/**
 	 * 是否有权限

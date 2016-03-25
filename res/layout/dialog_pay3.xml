@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="38元"
+                android:text="20元"
                 android:textColor="#ff6633"
                 android:textSize="@dimen/sp_14" />
         </LinearLayout>

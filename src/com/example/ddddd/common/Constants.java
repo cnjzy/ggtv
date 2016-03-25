@@ -17,10 +17,10 @@ public class Constants {
     /**
      * 支付金额
      */
-    public static final int VIP_YEAR = 58;
+    public static final int VIP_YEAR = 38;
 //    public static final int VIP_TENURE = 1;
-    public static final int VIP_TENURE = 38;
-    public static final int VIP_YEAR_TO_TENURE = 40;
+    public static final int VIP_TENURE = 58;
+    public static final int VIP_YEAR_TO_TENURE = 20;
     
     /**
      * 支付类型

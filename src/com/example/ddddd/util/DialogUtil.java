@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.ddddd.R;
 import com.example.ddddd.base.BaseActivity;
+import com.example.ddddd.common.Constants;
 import com.example.ddddd.widget.dialog.EtaoShiDialog;
 import com.example.ddddd.widget.dialog.EtaoShiTipDialog;
 import com.umeng.analytics.MobclickAgent;
@@ -240,7 +241,7 @@ public class DialogUtil {
 			public void onClick(View v) {
 				mDialog.cancel();
 				if(onClickListener != null)
-					onClickListener.onClick(0, 40);
+					onClickListener.onClick(0, Constants.VIP_YEAR_TO_TENURE);
 			}
 		});
         
@@ -279,14 +280,14 @@ public class DialogUtil {
 			public void onClick(View v) {
 				mDialog.cancel();
 				if(onClickListener != null)
-					onClickListener.onClick(0, 58);
+					onClickListener.onClick(0, Constants.VIP_YEAR);
 			}
 		});
         pay_all_btn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				mDialog.cancel();
 				if(onClickListener != null)
-					onClickListener.onClick(0, 98);
+					onClickListener.onClick(0, Constants.VIP_TENURE);
 			}
 		});
         

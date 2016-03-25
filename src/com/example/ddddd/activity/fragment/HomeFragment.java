@@ -85,7 +85,7 @@ public class HomeFragment extends BaseFragment {
 
 	@Override
 	public void initValue() {
-		getUserStatus();
+//		getUserStatus();
 		getListData();
 	}
 
