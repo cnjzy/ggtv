@@ -9,7 +9,8 @@ public class Constants {
      * 纯净版 http://apiv.76iw.com
      * 正式版 http://api.76iw.com
      */
-    public static final String BASE_URL = "http://api.76iw.com";
+//    public static final String BASE_URL = "http://api.76iw.com";
+    public static final String BASE_URL = "http://apiv.76iw.com";
     public static final String PLATFORM = "Android";
     public static final String CHANNEL = "ets";
 
