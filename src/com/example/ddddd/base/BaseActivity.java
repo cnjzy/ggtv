@@ -36,8 +36,8 @@ import com.example.ddddd.procotol.BaseResponseMessage;
 import com.example.ddddd.util.DeviceUtil;
 import com.example.ddddd.util.DialogUtil;
 import com.example.ddddd.util.LogUtil;
+import com.example.ddddd.util.PayUtils;
 import com.example.ddddd.util.StringUtil;
-import com.example.ddddd.util.UMengUtils;
 import com.example.ddddd.util.preference.Preferences;
 import com.example.ddddd.util.preference.PreferencesUtils;
 import com.example.ddddd.vo.OrderVO;
@@ -49,7 +49,6 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.umeng.analytics.MobclickAgent;
-import com.wo.main.WP_SDK;
 
 /**
  * 
@@ -560,44 +559,17 @@ public abstract class BaseActivity extends FragmentActivity implements
 						}
 					}
 					OrderVO vo = (OrderVO) br.getResult();
-					WP_SDK.on_Recharge(String.valueOf(Constants.VIP_TENURE * 100), feeName, feeDesp, vo.getOrder_no(), pay_type-1);
+					int mStrPayMode = pay_type == 1 ? 2 : 1;
+					if(mStrPayMode == 1){
+						PayUtils.payByH5(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					}else{
+						PayUtils.pay(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+					}
 				}
 				break;
 			}
 		} catch (Exception e) {
 			LogUtil.e(e);
-		}
-	}
-	
-	/***
-	 * @param requestcode
-	 *            请求编号
-	 * @param responsecode
-	 *            响应编号
-	 * @param intent
-	 *            响应内容
-	 */
-	public void onActivityResult(int requestcode, int responsecode, Intent intent) {
-		super.onActivityResult(requestcode, responsecode, intent);
-		try {
-			if (intent != null) {
-				int code = intent.getIntExtra("code", 1);
-				String value = intent.getStringExtra("info");
-				if (responsecode == 0) {// 充值
-					if (code == 0) {// 充值成功
-						UMengUtils.addPaySuccess(context);
-						System.err.println("=======code=" + code + ",info=" + value);
-						MyApp.preferencesUtils.putInt(Preferences.USER_STATUS, MyApp.preferencesUtils.getInt("member_type", Constants.MEMBER_TYPE_IS_YEAR));
-						reLoadView();
-						Toast.makeText(this, "充值成功!", Toast.LENGTH_LONG).show();
-						finish();
-					} else {// 充值失败
-							
-					}
-				}
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
 		}
 	}
 }

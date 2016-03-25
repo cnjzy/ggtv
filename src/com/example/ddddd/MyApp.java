@@ -26,10 +26,8 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
-import com.wo.main.WP_App;
-import com.wo.main.WP_SDK;
 
-public class MyApp extends WP_App {
+public class MyApp extends Application {
 	private static Context context;
 
 	/**
@@ -62,8 +60,7 @@ public class MyApp extends WP_App {
 		initImageLoader(getApplicationContext());
 
 		// 本地化
-		preferencesUtils = new PreferencesUtils(getApplicationContext(),
-				Preferences.USER_INFO_FILE);
+		preferencesUtils = new PreferencesUtils(getApplicationContext(), Preferences.USER_INFO_FILE);
 		mUserInfo = (UserInfoVO) (BaseJson.parser(new TypeToken<UserInfoVO>() {
 		}, preferencesUtils.getString(Preferences.PREFERENSE_USER_INFO, "")));
 
@@ -80,22 +77,17 @@ public class MyApp extends WP_App {
 		// or you can create default configuration by
 		// ImageLoaderConfiguration.createDefault(this);
 		// method.
-		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-				context).threadPriority(Thread.NORM_PRIORITY - 2)
-				.denyCacheImageMultipleSizesInMemory()
-				.diskCacheFileNameGenerator(new Md5FileNameGenerator())
-				.diskCacheSize(50 * 1024 * 1024) // 50 Mb
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).threadPriority(Thread.NORM_PRIORITY - 2).denyCacheImageMultipleSizesInMemory()
+				.diskCacheFileNameGenerator(new Md5FileNameGenerator()).diskCacheSize(50 * 1024 * 1024) // 50
+																										// Mb
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
 				// .writeDebugLogs() // Remove for release app
 				.build();
 		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);
 
-		options = new DisplayImageOptions.Builder()
-				.showImageOnLoading(R.drawable.f20_video_bg_w460_h300)
-				.showImageForEmptyUri(R.drawable.f20_video_bg_w460_h300)
-				.showImageOnFail(R.drawable.f20_video_bg_w460_h300)
-				.cacheInMemory(true).cacheOnDisk(true).considerExifParams(true)
+		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.f20_video_bg_w460_h300).showImageForEmptyUri(R.drawable.f20_video_bg_w460_h300)
+				.showImageOnFail(R.drawable.f20_video_bg_w460_h300).cacheInMemory(true).cacheOnDisk(true).considerExifParams(true)
 				// .displayer(new RoundedBitmapDisplayer(20))
 				.build();
 
@@ -111,13 +103,11 @@ public class MyApp extends WP_App {
 
 	public void setUserInfo(UserInfoVO mUserInfo) {
 		this.mUserInfo = mUserInfo;
-		preferencesUtils.putString(Preferences.PREFERENSE_USER_INFO,
-				BaseJson.toJson(mUserInfo));
+		preferencesUtils.putString(Preferences.PREFERENSE_USER_INFO, BaseJson.toJson(mUserInfo));
 	}
 
 	public static void showToast(String msg) {
-		Toast toast = Toast.makeText(context, (!StringUtil.isEmpty(msg)) ? msg
-				: "", Toast.LENGTH_SHORT);
+		Toast toast = Toast.makeText(context, (!StringUtil.isEmpty(msg)) ? msg : "", Toast.LENGTH_SHORT);
 		toast.show();
 	}
 
@@ -125,15 +115,12 @@ public class MyApp extends WP_App {
 		return animateFirstListener;
 	}
 
-	private static class AnimateFirstDisplayListener extends
-			SimpleImageLoadingListener {
+	private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
 
-		static final List<String> displayedImages = Collections
-				.synchronizedList(new LinkedList<String>());
+		static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
 
 		@Override
-		public void onLoadingComplete(String imageUri, View view,
-				Bitmap loadedImage) {
+		public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
 			if (loadedImage != null) {
 				ImageView imageView = (ImageView) view;
 				boolean firstDisplay = !displayedImages.contains(imageUri);

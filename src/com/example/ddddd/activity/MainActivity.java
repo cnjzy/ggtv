@@ -29,13 +29,11 @@ import com.example.ddddd.net.utils.RequestParameter;
 import com.example.ddddd.procotol.BaseResponseMessage;
 import com.example.ddddd.util.DeviceUtil;
 import com.example.ddddd.util.DialogUtil;
-import com.example.ddddd.util.DialogUtil.OnAlertSelectId;
 import com.example.ddddd.util.DownloadManagerUtils;
 import com.example.ddddd.util.UMengUtils;
 import com.example.ddddd.util.preference.Preferences;
 import com.example.ddddd.vo.VersionVO;
 import com.google.gson.reflect.TypeToken;
-import com.wo.main.WP_SDK;
 
 public class MainActivity extends BaseActivity {
 	private final int REQUEST_GET_VERSION_KEY = 10001;
@@ -69,8 +67,6 @@ public class MainActivity extends BaseActivity {
 	public void init() {
 		UMengUtils.addShowMain(context);
 		fm = getSupportFragmentManager();
-		// 支付SDK
-		WP_SDK.on_Init(this, null);
 	}
 
 	@Override

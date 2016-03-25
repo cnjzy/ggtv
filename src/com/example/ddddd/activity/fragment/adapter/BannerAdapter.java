@@ -5,7 +5,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
@@ -17,12 +16,10 @@ import android.widget.TextView;
 
 import com.example.ddddd.MyApp;
 import com.example.ddddd.R;
-import com.example.ddddd.activity.DetailActivity;
 import com.example.ddddd.base.BaseActivity;
 import com.example.ddddd.util.LogUtil;
 import com.example.ddddd.util.PayUtils;
 import com.example.ddddd.util.ViewHolderUtil;
-import com.example.ddddd.util.DialogUtil.OnAlertSelectId;
 import com.example.ddddd.vo.ProductInfoVO;
 import com.example.ddddd.widget.view.ChildViewPager;
 import com.example.ddddd.widget.view.ChildViewPager.OnSingleTouchListener;

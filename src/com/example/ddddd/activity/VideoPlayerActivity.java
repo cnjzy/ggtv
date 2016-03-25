@@ -17,13 +17,12 @@ import com.example.ddddd.MyApp;
 import com.example.ddddd.R;
 import com.example.ddddd.base.BaseActivity;
 import com.example.ddddd.common.Constants;
-import com.example.ddddd.util.DialogUtil.OnAlertSelectId;
 import com.example.ddddd.util.DialogUtil;
+import com.example.ddddd.util.DialogUtil.OnAlertSelectId;
 import com.example.ddddd.util.VideoHistoryUtils;
 import com.example.ddddd.util.preference.Preferences;
 import com.example.ddddd.vo.ProductInfoVO;
 import com.example.ddddd.widget.dialog.CustomLoadingDialog;
-import com.wo.main.WP_SDK;
 
 public class VideoPlayerActivity extends BaseActivity implements
 		MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
@@ -121,8 +120,6 @@ public class VideoPlayerActivity extends BaseActivity implements
 		if(!TextUtils.isEmpty(vo.getTestUrl()) && !TextUtils.isEmpty(vo.getTestSecond())){
 			// Video file
 			mUri = Uri.parse(vo.getTestUrl());
-			// 支付SDK
-			WP_SDK.on_Init(this, null);
 		}else{
 			// Video file
 			mUri = Uri.parse(vo.getVideoUrl());
