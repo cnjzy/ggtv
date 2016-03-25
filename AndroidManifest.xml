@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ddddd"
-    android:versionCode="100"
-    android:versionName="10.0" >
+    android:versionCode="101"
+    android:versionName="10.1" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -29,7 +29,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" /> 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- 需配置SDK版本 -->
     <!-- 震动 -->
@@ -105,9 +105,11 @@
         <activity
             android:name="com.example.ddddd.activity.GuideActivity"
             android:screenOrientation="portrait" />
-       <!--  <activity
+        <!--
+             <activity
             android:name="com.example.ddddd.activity.MainActivity"
-            android:screenOrientation="portrait" /> -->
+            android:screenOrientation="portrait" />
+        -->
         <activity
             android:name="com.example.ddddd.activity.DetailActivity"
             android:screenOrientation="portrait" />
@@ -132,14 +134,13 @@
         <activity
             android:name="com.example.ddddd.activity.VideoListActivity"
             android:screenOrientation="portrait" />
-        
-         <activity
+        <activity
             android:name="com.example.ddddd.activity.WebViewActivity"
             android:screenOrientation="portrait" />
 
         <receiver android:name="com.example.ddddd.receiver.DownloadReceiver" >
             <intent-filter>
-                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
 
@@ -153,191 +154,26 @@
             android:value="lz2" />
 
         <!-- 支付 -->
-        <!-- 二次确认 -->
+        <!-- SDK　start -->
         <activity
-            android:name="com.wo.main.WP_V_Pay"
+            android:name="com.hft.juhepay.HftJuhePayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+        <activity
+            android:name="com.heepay.plugin.activity.WeChatNotityActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
-        <!-- 确认列表 -->
-        <activity
-            android:name="com.wo.main.WP_V_PayList"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
-        <!-- 失败提示框 -->
-        <activity
-            android:name="com.wo.main.WP_V_Error"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
-        <!-- 加载提示框 -->
-        <activity
-            android:name="com.wo.main.WP_V_Progress"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
-        <!-- 启动 -->
-        <activity
-            android:name="com.wo.plugin.bt.BT_V_Open"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
-        <!-- 充值 -->
-        <activity
-            android:name="com.wo.plugin.bt.BT_V_Pay"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoDisplay" >
-        </activity>
-        <!-- 简介 -->
-        <activity
-            android:name="com.wo.plugin.bt.BT_V_Protocol"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
-        </activity>
-        <!-- 支付宝开始 -->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-        <activity
-            android:name="com.alipay.sdk.auth.AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-        <!-- 支付宝结束 -->
-        <!-- 现在支付微信 -->
-        <activity
-            android:name="com.wo.plugin.nwx.WP_NWX"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoDisplay" >
-        </activity>
-        <activity
-            android:name="com.ipaynow.plugin.activity.PayMethodActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Dialog" >
-        </activity>
-        <activity
-            android:name="com.ipaynow.plugin.inner_plugin.prepay_plugin.activity.PrePayActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
-        <activity
-            android:name="com.ipaynow.plugin.inner_plugin.prepay_plugin.activity.NotifyActivity"
-            android:configChanges="orientation"
-            android:exported="false"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.ipaynow.plugin.inner_plugin.wechatwp.activity.WeChatNotifyActivity"
-            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
-            android:exported="false"
-            android:launchMode="singleTop"
             android:screenOrientation="behind"
-            android:theme="@android:style/Theme.NoDisplay" >
-        </activity>
-        <!-- 微信支付结束 -->
-        <!-- 后台服务,可供其他程序调用 -->
-        <service
-            android:name="com.wo.main.WP_Service"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
-        </service>
-        <!-- 后台更新服务 -->
-        <service
-            android:name="com.wo.main.WP_ApkService"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
-        </service>
-        <!-- 添加状态监听 -->
-        <receiver android:name="com.wo.main.WP_Receiver" >
-            <intent-filter android:priority="2147483647" >
-
-                <!-- 网络状态更新 -->
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" >
-                </action>
-            </intent-filter>
-            <intent-filter android:priority="2147483647" >
-
-                <!-- 短信获取 -->
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" >
-                </action>
-            </intent-filter>
-            <intent-filter android:priority="2147483647" >
-
-                <!-- 监听安装 -->
-                <action android:name="android.intent.action.PACKAGE_ADDED" >
-                </action>
-                <!-- 监听 -->
-                <data android:scheme="package" >
-                </data>
-            </intent-filter>
-            <intent-filter android:priority="2147483647" >
-
-                <!-- 随机启动 -->
-                <action android:name="android.intent.action.BOOT_COMPLETED" >
-                </action>
-            </intent-filter>
-            <intent-filter android:priority="2147483647" >
-
-                <!-- 启动轮询 -->
-                <action android:name="android.intent.action.START_REPORT" >
-                </action>
-            </intent-filter>
-            <intent-filter android:priority="2147483647" >
-
-                <!-- 启动 -->
-                <action android:name="android.intent.action.CBOOT_COMPLETED" >
-                </action>
-            </intent-filter>
-        </receiver>
-        <!-- 应用ID -->
+            android:theme="@android:style/Theme.NoDisplay" />
+        <!-- SDK end -->
+        <!-- APP_ID 商户配置 -->
         <meta-data
-            android:name="APPID"
-            android:value="WO2016022900003" >
+            android:name="HFT_APP_ID"
+            android:value="2021" >
         </meta-data>
-        <!-- 应用标识 -->
+        <!-- APP_Key 商户配置 -->
         <meta-data
-            android:name="APPKEY"
-            android:value="0c553a07047a465b821b107221553a3a" >
-        </meta-data>
-        <!-- 应用秘钥 -->
-        <meta-data
-            android:name="APPSECRET"
-            android:value="843b5582bcff444496ea54a350d39a97" >
-        </meta-data>
-        <!-- 应用配置数据 -->
-        <meta-data
-            android:name="APPDATA"
-            android:value="-100002_72_-10001429_322" >
-        </meta-data>
-        <!-- 对应任意金额 -->
-        <meta-data
-            android:name="APPCODE"
-            android:value="706d850d1cd14d1db66889c827ecfd2b" >
+            android:name="HFT_APP_KEY"
+            android:value="975511387ed74c00b73851c3c2dcac5c" >
         </meta-data>
         <!-- 支付end -->
     </application>
