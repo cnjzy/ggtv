@@ -20,6 +20,7 @@ import com.example.ddddd.util.DateUtils;
 import com.example.ddddd.util.DeviceUtil;
 import com.example.ddddd.util.Md5Encode;
 import com.example.ddddd.util.UMengUtils;
+import com.example.ddddd.util.preference.Preferences;
 import com.example.ddddd.vo.GatewayModel;
 
 public class WebViewActivity extends BaseActivity {
@@ -97,7 +98,7 @@ public class WebViewActivity extends BaseActivity {
 
 				if(url.indexOf(mStrReturnUrl) != -1){
 					UMengUtils.addPaySuccess(context);
-					MyApp.preferencesUtils.putInt("userType", Constants.MEMBER_TYPE_IS_TENURE);
+					MyApp.preferencesUtils.putInt(Preferences.USER_STATUS, Constants.MEMBER_TYPE_IS_TENURE);
 					showToast("支付成功");
 					finish();
 				}

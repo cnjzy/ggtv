@@ -43,7 +43,7 @@ public class PayUtils {
 			@Override
 			public void onPaySuccess(Map params) {
 				UMengUtils.addPaySuccess(mContext);
-				MyApp.preferencesUtils.putInt("userType", Constants.MEMBER_TYPE_IS_TENURE);
+				MyApp.preferencesUtils.putInt(Preferences.USER_STATUS, Constants.MEMBER_TYPE_IS_TENURE);
 				if (mContext instanceof VideoPlayerActivity) {
 					mContext.finish();
 				}
