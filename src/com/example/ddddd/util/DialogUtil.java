@@ -322,12 +322,20 @@ public class DialogUtil {
     	mDialog.setContentView(R.layout.dialog_pay3);
 
         TextView pay_amount_tv = (TextView) mDialog.findViewById(R.id.pay_amount_tv);
+        TextView member_type_tv = (TextView) mDialog.findViewById(R.id.member_type_tv);
         final RadioButton pay_radio_alipay_rb = (RadioButton) mDialog.findViewById(R.id.pay_radio_alipay_rb);
         RadioButton pay_radio_wx_rb = (RadioButton) mDialog.findViewById(R.id.pay_radio_wx_rb);
         Button pay_btn = (Button) mDialog.findViewById(R.id.pay_btn);
         Button close_btn = (Button) mDialog.findViewById(R.id.close_btn);
 
         pay_amount_tv.setText(String.valueOf(amount));
+        if(amount == Constants.VIP_TENURE){
+        	member_type_tv.setText("包年会员");
+        }else if(amount == Constants.VIP_YEAR){
+        	member_type_tv.setText("包月会员");
+        }else if(amount == Constants.VIP_YEAR_TO_TENURE){
+        	member_type_tv.setText("升级包年");
+        }
         
         close_btn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {

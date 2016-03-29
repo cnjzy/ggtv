@@ -530,8 +530,9 @@ public abstract class BaseActivity extends FragmentActivity implements
 		params.add(new RequestParameter("amount", amount));
 		params.add(new RequestParameter("pay_type", pay_type));
 		params.add(new RequestParameter("member_type", member_type));
-		startHttpRequest(Constants.HTTP_POST, Constants.URL_GET_ORDER, params,
-				true, "", REQUEST_PAY_KEY);
+		params.add(new RequestParameter("channel", DeviceUtil.getChannelName(context, "UMENG_CHANNEL")));
+		params.add(new RequestParameter("version", DeviceUtil.getVersionCode(context)));
+		startHttpRequest(Constants.HTTP_POST, Constants.URL_GET_ORDER, params, true, "", REQUEST_PAY_KEY);
 	}
 
 	public void onCallbackFromThread(String resultJson, int resultCode) {
@@ -551,19 +552,19 @@ public abstract class BaseActivity extends FragmentActivity implements
 						feeDesp = "包年会员";
 					}else if(member_type == Constants.MEMBER_TYPE_IS_TENURE){
 						if(MyApp.preferencesUtils.getInt(Preferences.USER_STATUS, 0) == Constants.MEMBER_TYPE_IS_NOT){
-							feeName = "终身会员";
-							feeDesp = "终身会员";
+							feeName = "包年会员";
+							feeDesp = "包年会员";
 						}else{
-							feeName = "升级终身";
-							feeDesp = "升级终身";
+							feeName = "升级包年";
+							feeDesp = "升级包年";
 						}
 					}
 					OrderVO vo = (OrderVO) br.getResult();
 					int mStrPayMode = pay_type == 1 ? 2 : 1;
 					if(mStrPayMode == 1){
-						PayUtils.payByH5(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+						PayUtils.payByH5(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(amount));
 					}else{
-						PayUtils.pay(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(Constants.VIP_TENURE));
+						PayUtils.pay(context, vo.getOrder_no(), String.valueOf(mStrPayMode), String.valueOf(amount));
 					}
 				}
 				break;

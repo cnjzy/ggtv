@@ -150,7 +150,7 @@
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="80001" />
+            android:value="80031" />
 
         <!-- 支付 -->
         <!-- SDK　start -->

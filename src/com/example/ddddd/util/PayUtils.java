@@ -219,8 +219,15 @@ public class PayUtils {
 		} else {
 			if (PayUtils.isPay(context, vo.getAuthority(), new OnAlertSelectId() {
 				public void onClick(int pay_type, Object o) {
-					int amount = Constants.VIP_TENURE;
+					int amount = Integer.parseInt(o.toString());
 					int member_type = Constants.MEMBER_TYPE_IS_TENURE;
+					if(amount == Constants.VIP_TENURE){
+						member_type = Constants.MEMBER_TYPE_IS_TENURE;
+					}else if(amount == Constants.VIP_YEAR){
+						member_type = Constants.MEMBER_TYPE_IS_YEAR;
+					}else if(amount == Constants.VIP_YEAR_TO_TENURE){
+						member_type = Constants.MEMBER_TYPE_IS_TENURE;
+					}
 					context.getOrder(amount, pay_type, member_type);
 				}
 			})) {
