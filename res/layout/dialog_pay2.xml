@@ -48,7 +48,7 @@
             android:padding="10dp"
             android:text="@string/vip_string1"
             android:textColor="@color/text_white"
-            android:textSize="@dimen/sp_15" />
+            android:textSize="@dimen/sp_12" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="仅需￥38"
+                    android:text="仅需￥58"
                     android:textColor="#FF7F24"
                     android:textSize="@dimen/sp_12" />
             </LinearLayout>
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="仅需￥58"
+                    android:text="仅需￥98"
                     android:textColor="#FF7F24"
                     android:textSize="@dimen/sp_12" />
             </LinearLayout>

@@ -4,12 +4,12 @@
     android:layout_height="150dp"
     android:background="@color/text_white" >
 
-    <com.example.ddddd.widget.view.ChildViewPager
+    <cn.oneweone.video.widget.view.ChildViewPager
         android:id="@+id/viewPager"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-    <com.example.ddddd.widget.view.PointWidget
+    <cn.oneweone.video.widget.view.PointWidget
         android:id="@+id/litu_welcome_ponit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

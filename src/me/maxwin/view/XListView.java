@@ -9,6 +9,7 @@
 package me.maxwin.view;
 
 import android.content.Context;
+import android.content.DialogInterface.OnClickListener;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,11 +19,10 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
-
-import com.example.ddddd.R;
-import com.huewu.pla.lib.MultiColumnListView;
-import com.huewu.pla.lib.internal.PLA_AbsListView;
-import com.huewu.pla.lib.internal.PLA_AbsListView.OnScrollListener;
+import cn.huewu.pla.lib.MultiColumnListView;
+import cn.huewu.pla.lib.internal.PLA_AbsListView;
+import cn.huewu.pla.lib.internal.PLA_AbsListView.OnScrollListener;
+import cn.oneweone.video.R;
 
 public class XListView extends MultiColumnListView implements OnScrollListener {
 

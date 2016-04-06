@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <com.example.ddddd.widget.view.ScaleImageView
+        <cn.oneweone.video.widget.view.ScaleImageView
             android:id="@+id/item_image_iv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

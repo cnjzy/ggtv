@@ -18,12 +18,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp" />
 
-        <com.example.ddddd.widget.view.CustomTextView
+        <cn.oneweone.video.widget.view.CustomTextView
             android:id="@+id/list_null_text_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <com.example.ddddd.widget.view.CustomButton
+        <cn.oneweone.video.widget.view.CustomButton
             android:id="@+id/list_null_reload_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
